@@ -1,0 +1,51 @@
+.partners
+  &__link
+    position relative
+    display block
+    height 100px
+    width 196px
+    margin 0 auto
+    &::before
+      content ''
+      position absolute
+      bottom 0
+      width 100%
+      background-repeat no-repeat
+      background-position top
+      background-size cover
+    &--lukoil
+      &::before
+        height 77px
+        background-image var(--icon-lukoil)
+    &--gazprom
+      &::before
+        height 77px
+        background-image var(--icon-gazprom)
+        background-size contain
+    &--rosneft
+      &::before
+        height 100%
+        background-image var(--icon-rosneft)
+    &--tatneft
+      &::before
+        height 77px
+        background-image var(--icon-tatneft)
+
+  &__slider
+    padding-bottom 7.75rem
+    &::after
+      content ''
+      position absolute
+      bottom 4.25rem
+      width 100%
+      height 1px
+      background-color var(--table-border)
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev
+  transform scale(0.33)
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+  margin-right 2.875rem
+

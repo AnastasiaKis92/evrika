@@ -1,0 +1,18 @@
+.button
+  fontSize14()
+  display block
+  width 100%
+  padding 1.08rem 0
+  font-family 'Montserrat', 'Helvetica-Neue', 'Arial', sans-serif
+  font-weight 600
+  color var(--color-white)
+  text-decoration none
+  text-align center
+  background-color var(--color-blue-light)
+  border none
+  appearance none
+  transition background-color var(--transition-duration-out), color var(--transition-duration-out)
+  &:hover
+    transition-duration var(--transition-duration-in)
+    @media (min-width point-l)
+      background-color var(--color-blue-dark)

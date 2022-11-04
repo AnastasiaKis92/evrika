@@ -1,0 +1,38 @@
+mixin formInput(item)
+  -
+    let inputClass = [
+      item.type ? `form-input--${item.type}` : '',
+      attributes.class,
+    ]
+  label.form-input(class != inputClass)
+    if item.label
+      +createElement({tag: 'span', attr: {for: attributes.id, class: 'form-input__label'}, content: item.label})
+    -
+      const inputTag = item.type === 'select' || item.type === 'textarea' ? item.type : 'input'
+      const inputType = item.type !== 'select' && item.type !== 'textarea' ? item.type : false
+      const options = []
+      if (item.options) {
+        for (let option of item.options) {
+          const opt = {tag: 'option', attr: {}}
+          opt.content = typeof option === 'string' ? option : option.name
+          opt.attr.value = typeof option === 'string' ? option : option.value
+          options.push(opt)
+        }
+      }
+      const input = {
+        tag: inputTag,
+        attr: {
+          type: inputType,
+          name: item.name,
+          id: attributes.id,
+          class: ['form-input__field', item.class],
+          required: item.required,
+          placeholder: item.placeholder,
+          readonly: item.readonly,
+          maxlength: item.maxlength,
+          minlength: item.minlength,
+          value: item.value,
+        },
+      }
+      item.type === 'select' && options.length > 0 ? input.content = options : false
+    +createElement(input)

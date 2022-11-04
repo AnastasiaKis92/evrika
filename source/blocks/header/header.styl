@@ -1,0 +1,50 @@
+.header
+  &__container
+    display flex
+    align-items center
+    position relative
+  &__link-tel
+    position relative
+    display block
+    width 155px
+    height 22px
+    margin-left auto
+    margin-right 1.8rem
+    font-weight 600
+    fontSize18()
+    @media (max-width point-m)
+      display none
+    &::before
+      content ''
+      position absolute
+      top 3px
+      left -40px
+      width 2rem
+      height 2rem
+      mask-image var(--icon-tel)
+      mask-repeat no-repeat
+      background-color var(--color-black)
+  &__button
+    position relative
+    width 176px
+    fontSize13()
+    &--login
+      padding-left 2.5rem
+      &::before
+        content ''
+        position absolute
+        left 12px
+        width 2rem
+        height 2rem
+        mask-image var(--icon-login)
+        mask-repeat no-repeat
+        mask-size contain
+        background-color var(--color-white)
+      @media (max-width point-m)
+        margin-right 2.6rem
+        margin-left auto
+      @media (max-width point-s)
+        display none
+    &--letter
+      @media (max-width point-m)
+        display none

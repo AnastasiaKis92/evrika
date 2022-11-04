@@ -1,0 +1,20 @@
+@import "../../node_modules/swiper/swiper-bundle.min.css"
+@import "../../node_modules/nouislider/dist/nouislider.min.css"
+
+@import "../styles/includes/**/*.styl"
+@import "../blocks/**/*.styl"
+
+fontFace('Montserrat', 'Montserrat-Regular', '400', 'normal')
+fontFace('Montserrat', 'Montserrat-Medium', '500', 'normal')
+fontFace('Montserrat', 'Montserrat-SemiBold', '600', 'normal')
+fontFace('Montserrat', 'Montserrat-Bold', '700', 'normal')
+
+html
+  font-family 'Montserrat', 'Helvetica-Neue', 'Arial', sans-serif
+  font-size 16px
+  line-height 1.375
+  font-weight 400
+
+.page-hidden
+  @media (max-width point-m)
+    overflow: hidden

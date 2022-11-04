@@ -1,0 +1,48 @@
+-
+  const nav = [
+    { name: 'Доставка топлива' },
+    { name: 'Топливные карты',
+      class: 'sublist'
+    },
+    { name: 'АЗС',
+      class: 'sublist'
+    },
+    { name: 'Цены на топливо' },
+    { name: 'О компании',
+      class: 'sublist'
+    },
+    { name: 'Контакты' },
+    { name: 'Личный кабинет',
+      class: 'burger'
+    },
+  ]
+
+header.header
+  +pageSection({ header:true})
+    .header__container
+      +img({
+        name: 'logo',
+        path: '/images/',
+        formats: [
+          { ext: 'png', orig: true },
+          { ext: 'webp', mime: 'image/webp' },
+        ],
+        density: [
+          { values: [ 1, 2 ] }
+        ]
+      })(alt= 'Логотип ООО Процессинг 24' title= 'Логотип ООО Процессинг 24' width=200 height=45 class='header__logo')
+
+      a(href='84951278280').header__link-tel 8 (495) 127-82-80
+      +button.header__button.header__button--letter Напишите нам
+      +button.header__button.header__button--login Личный кабинет
+
+      button.burger
+        span.hidden Открыть меню
+        span.burger__inner
+
+  +pageSection({ nav:true, bg:true})
+    nav.nav
+      ul.nav__list
+        each item in nav
+          li.nav__item
+            a(href='#', class= ['nav__link', `nav__link--${item.class}`])= item.name

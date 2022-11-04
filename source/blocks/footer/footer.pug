@@ -1,0 +1,52 @@
+-
+  const stationList = [
+    { name: 'Карта АЗС' },
+    { name: 'АЗС по регионам' },
+    { name: 'АЗС по брендам' },
+    { name: 'Доставка топлива' },
+  ]
+
+  const contactsList = [
+    { name: 'Контакты' },
+    { name: 'О компании' },
+    { name: 'Личный кабинет' },
+  ]
+
+footer.footer
+  +pageSection({ footer:true })
+    +grid({ justify:'space-between' })
+      +cell({ l:4, m:4, s:12 })
+        .footer-menu
+          +img({
+            name: 'logo',
+            path: '/images/',
+            formats: [
+              { ext: 'png', orig: true },
+              { ext: 'webp', mime: 'image/webp' },
+            ],
+            density: [
+              { values: [ 1, 2 ] }
+            ]
+          })(alt= 'Логотип ООО Процессинг 24' title= 'Логотип ООО Процессинг 24' width=200 height=45 class='footer-menu__logo')
+          p.footer-menu__logo-text © 2019 ООО "Процессинг 24"
+
+      +cell({ l:2, m:3, s:4, xs:6 })
+        .footer-menu
+          ul.footer-menu__list
+            each item in stationList
+              li.footer-menu__item
+                a(href='/').footer-menu__link= item.name
+
+      +cell({ l:2, m:2, s:3, xs:6 })
+        .footer-menu
+          ul.footer-menu__list
+            each item in contactsList
+              li.footer-menu__item
+                a(href='/').footer-menu__link= item.name
+
+      +cell({ l:3, m:3, s:5 })
+        .footer-menu
+          p.footer-menu__sales Отдел продаж
+          a(href='84951278170').footer-menu__link-tel 8 (495) 127-81-70
+
+    a(href='/').footer-bottom__link Политика конфиденциальности

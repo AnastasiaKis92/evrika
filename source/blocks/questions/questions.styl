@@ -1,0 +1,29 @@
+.questions
+  &__container
+    width 83%
+    margin 0 auto
+    @media(max-width point-m)
+      width 100%
+  &__text
+    width 50%
+    margin 0 auto
+    padding 2rem 0
+    fontSize13()
+    @media(max-width point-m)
+      width 100%
+  &__form
+    padding-bottom 1rem
+  &__callback
+  &__link
+    fontSize12()
+  &__link
+    font-weight 400
+    text-decoration underline
+    &:hover
+      @media (min-width point-l)
+        color var(--color-blue-light)
+  &__button
+    &:hover
+      @media (min-width point-l)
+        background-color var(--color-white)
+        color var(--color-blue-dark)

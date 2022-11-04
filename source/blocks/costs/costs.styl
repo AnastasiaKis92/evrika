@@ -1,0 +1,55 @@
+.costs
+  &__container
+    max-width 100%
+    @media(max-width point-m)
+      overflow-x scroll
+    & table
+      width 100%
+      text-align left
+    // Заголовки таблицы
+    & th
+      padding 1.25rem 0.5rem 1.25rem 1.8rem
+      color var(--color-white)
+      fontSize14()
+      font-weight 600
+      vertical-align middle
+      background-color var(--color-blue-dark)
+  // Отступ м/у блоками таблицы
+  &__break
+    padding 0
+    height 1rem
+  // Столбец с видом топлива
+  &__fuel
+    padding 1rem 1.25rem
+    fontSize24()
+    font-weight 700
+    color var(--color-white)
+    background-color var(--color-blue-light)
+  // Столбец с маркой топлива
+  &__mark
+    border-right 1px solid var(--table-border)
+
+th
+  &:first-of-type
+    padding 1.25rem 0.5rem 1.25rem 1.25rem
+    width 15%
+  &:nth-of-type(2)
+    width 25%
+  &:nth-of-type(3)
+    width 25%
+  &:nth-of-type(4)
+    width 17%
+  &:last-of-type
+    width 19%
+
+td
+  padding 1rem 1.875rem
+  fontSize13()
+  font-weight 600
+  &:not(.costs__break):not(.costs__fuel)
+    border-top 1px solid var(--table-border)
+  &:last-of-type
+    border-top 1px solid var(--table-border)
+    &:not(.costs__break)
+      border-right 1px solid var(--table-border)
+

@@ -1,0 +1,48 @@
+.work
+  &__container
+    min-height 285px
+    padding 1.875rem
+    color var(--color-white)
+    background-color var(--color-blue-dark)
+    @media(min-width point-m)
+      min-height 400px
+  &__title
+    padding-bottom 1.5rem
+    font-weight 500
+    fontSize20()
+  &__time
+    position relative
+    text-align right
+    font-weight 600
+    fontSize14()
+  &__wrapper
+    display flex
+    justify-content space-between
+  &__img
+    margin-bottom 1.875rem
+    width 64px
+    height 64px
+    background-repeat no-repeat
+    background-position center
+    &--request
+      background-image var(--icon-request)
+    &--confirm
+      background-image var(--icon-confirm)
+    &--refueling
+      background-image var(--icon-refueling)
+  &__link
+    display block
+    width 60px
+    height 14px
+    margin-left auto
+    margin-top 1rem
+    mask-image var(--icon-arrow-link)
+    mask-repeat no-repeat
+    mask-position center
+    mask-size cover
+    background-color var(--color-blue-light)
+  &__subtext
+    padding-top 1.3rem
+    fontSize12()
+
+

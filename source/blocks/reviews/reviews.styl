@@ -1,0 +1,43 @@
+.reviews
+  &__title
+    padding-bottom 3.375rem
+  &__name
+    padding-bottom 0.75rem
+    font-weight 600
+    fontSize15()
+  &__job
+    width 50%
+    padding-bottom 2.5rem
+    color var(--color-grey)
+    fontSize12()
+    @media(max-width point-l)
+      width 100%
+  &__link
+    margin-top auto
+    margin-right auto
+    color var(--color-blue-light)
+    @media(max-width point-l)
+      padding-top 1rem
+  &__button
+    width 258px
+    margin 2.75rem auto 0
+
+.reviews__slide.swiper-slide
+  display flex
+  flex-direction column
+  justify-content space-between
+  min-height 368px
+  padding 2.5rem
+  background-color var(--color-white)
+  @media(max-width point-l)
+    min-height 415px
+  @media(max-width point-m)
+    min-height 375px
+  @media(max-width point-s)
+    min-height 460px
+.reviews__swiper-button.swiper-button-prev
+.reviews__swiper-button.swiper-button-next
+  background-color transparent
+  top 28px
+  @media (max-width point-m)
+    top 33px

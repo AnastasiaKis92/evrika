@@ -1,0 +1,52 @@
+.nav
+  &__list
+    display flex
+    flex-wrap wrap
+    column-gap 2.5rem
+  &__link
+    display block
+    padding 1.3rem 0
+    font-weight 600
+    fontSize15()
+    &--sublist
+      position relative
+      padding-right 1.5rem
+      &::after
+        content ''
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        right 5px
+        width 15px
+        height 7px
+        mask-image var(--icon-arrow)
+        mask-repeat no-repeat
+        mask-size cover
+        background-color var(--color-black)
+    &--burger
+      @media(min-width point-s)
+        display none
+
+@media(max-width point-m)
+  .nav
+    position absolute
+    display flex
+    flex-direction column
+    width 100%
+    height 100vh
+    left -100%
+    background-color var(--color-bg)
+    z-index 10
+    transition-duration 0.2s
+    &.animate
+      left 0
+      height 100vh
+      transition left 0.3s 0.3s
+    &__list
+      flex-direction column
+    &__link
+      padding 1rem 0 1rem 1rem
+      &--sublist
+        &::after
+          right auto
+          margin-left 0.5rem

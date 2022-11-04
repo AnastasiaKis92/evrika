@@ -1,0 +1,18 @@
+include /blocks/helpers/classes
+
+include /blocks/grid/grid
+include /blocks/container/container
+include /blocks/content/content
+include /blocks/page-section/page-section
+include /blocks/button/button
+include /blocks/page-subsection/page-subsection
+include /blocks/img/img
+
+doctype html
+html.page(lang='ru')
+  include /blocks/head/head
+  body.page
+    include /blocks/header/header
+    main: block content
+    include /blocks/footer/footer
+  script(src='scripts/main.min.js' type='module')

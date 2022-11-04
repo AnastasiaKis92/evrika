@@ -1,0 +1,76 @@
+mixin costs()
+  .costs__container
+    table
+      thead
+        tr
+          th Сорт топлива
+          th Экологический класс
+          th Производитель
+          th Наличный расчет
+          th Безналичный расчет
+      tbody
+        tr
+          td(colspan='5').costs__break
+        tr
+          td(rowspan='5').costs__fuel ДТ
+          td(rowspan='3').costs__mark ЕВРО-5
+          td Газпромнефть
+          td 45.43 р.
+          td 44.43 р.
+        tr
+          td Лукойл
+          td 45.16 р.
+          td 43.98 р.
+        tr
+          td Роснефть
+          td 42.34 р.
+          td 41.64 р.
+        tr
+          td(rowspan='2').costs__mark ЕВРО-4
+          td Газпромнефть
+          td -
+          td -
+        tr
+          td Лукойл
+          td 41.16 р.
+          td 40.67 р.
+        tr
+          td(colspan='5').costs__break
+        tr
+          td(rowspan='8').costs__fuel АИ-95
+          td(rowspan='3').costs__mark ЕВРО-5
+          td Газпромнефть
+          td 45.43 р.
+          td 44.43 р.
+        tr
+          td Роснефть
+          td 42.34 р.
+          td 41.64 р.
+        tr
+          td Лукойл
+          td 45.16 р.
+          td 43.98 р.
+        tr
+          td(rowspan='2').costs__mark ЕВРО-4
+          td Лукойл
+          td 41.16 р.
+          td 40.67 р.
+        tr
+          td Газпромнефть
+          td -
+          td -
+        tr
+          td(rowspan='3').costs__mark ЕВРО-3
+          td Роснефть
+          td 42.34 р.
+          td 41.64 р.
+        tr
+          td Газпромнефть
+          td -
+          td -
+        tr
+          td Лукойл
+          td 45.16 р.
+          td 43.98 р.
+        tr
+          td(colspan='5').costs__break

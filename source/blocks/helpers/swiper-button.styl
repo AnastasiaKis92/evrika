@@ -1,0 +1,31 @@
+// Swiper Navigation
+.swiper-button-prev
+.swiper-button-next
+  width 56px
+  height 56px
+  background-color var(--color-white)
+  border 1px solid var(--input-border)
+  top 28px
+  @media (max-width point-m)
+    top 70px
+  @media (max-width point-s)
+    top 100px
+  &.swiper-button-next
+    transform rotate(180deg)
+  &.swiper-button-prev
+    right 4.5rem
+    left auto
+  &::after
+    content ''
+    align-center()
+    width 30px
+    height 16px
+    mask-image var(--icon-arrow-btn)
+    mask-repeat no-repeat
+    background-color var(--color-black)
+
+  transition background-color var(--transition-duration-out)
+  &:hover
+    transition-duration var(--transition-duration-in)
+    @media (min-width point-l)
+      background-color var(--color-blue-light)

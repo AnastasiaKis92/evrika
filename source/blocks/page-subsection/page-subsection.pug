@@ -1,0 +1,5 @@
+mixin pageSubsection(settings = {})
+  -
+    const tag = settings.tag || 'div'
+  #{tag}(class= classes('page-subsection', settings))&attributes(attributes)
+    block

@@ -1,0 +1,47 @@
+.delivery
+  @media(min-width point-l)
+    & .grid
+      column-gap 4.4rem
+  &__form
+    padding-top 2.1rem
+  &__inputs
+    display flex
+    flex-direction column
+    row-gap 1rem
+    @media(min-width point-l)
+      &.grid__cell
+        width 36%
+  &__sum
+    padding 2.5rem
+    background-color var(--color-white)
+    box-shadow var(--shadow)
+    @media(min-width point-l)
+      &.grid__cell
+        width 57%
+  &__title
+    padding-bottom 1rem
+    fontSize24()
+    font-weight 500
+  &__par
+    display flex
+    justify-content space-between
+    padding-top 1rem
+    padding-bottom 0.625rem
+    border-top 1px solid var(--table-border)
+    &:nth-of-type(2)
+      padding-bottom 1rem
+  &__text
+    display block
+    padding-bottom 1rem
+    fontSize12()
+    color var(--color-grey)
+    @media(min-width point-s)
+      width 63%
+  &__benefit
+    fontSize18()
+    font-weight 600
+  &__button
+    margin-top 1rem
+    @media(min-width point-s)
+      width 50%
+

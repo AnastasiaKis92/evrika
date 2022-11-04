@@ -1,0 +1,66 @@
+mixin img(image)
+  - const breakpoints = { xs: 479, s: 799, m: 999 }
+  if image === undefined
+    img(loading='lazy' decoding='async')&attributes(attributes)
+  else if typeof image === 'string'
+    img(src != image loading='lazy' decoding='async')&attributes(attributes)
+
+  else if image.formats
+    picture
+      -
+        //- сохранение формата оригинального изображения в переменную
+        const original = image.formats.filter((item) => item.orig === true)[0]
+
+        //- перемещение формата с меткой orig в конец массива для правильного порядка source
+        //- эту строку можно не использовать, если удостовериться, что оригинальный формат всегда идёт последним в списке форматов
+        image.formats.push(image.formats.splice(image.formats.indexOf(original), 1)[0])
+      each item in image.formats
+        - const srcsets = [] // массив, в котором будут храниться пути
+
+        //- формирование путей, если для изображения указаны разные плотности
+        if image.density
+          -
+            // перебираем все значения в массиве плотностей. Каждое значение — набор плотностей для определённого разрешения экрана
+            image.density.forEach((d) => {
+              const srcset = []
+              if (d.values[0] !== 1) d.values.unshift(1) // если в массиве плотностей нет 1, то он добавляется в начало
+
+              //- формирование srcset для каждого набора плотностей
+              const size = d.name ? `_${d.name}` : '' //- название размера для пути. Если у плотности есть свойство name, то оно идёт в путь с "_". Если свойства нет, но размер в пути никак не отображается
+              d.values.forEach((v) => {
+                const path = `${image.path}${image.name}${size}${v > 1 ? '@'+v+'x' : ''}.${item.ext}${v > 1 ? ' ' + v + 'x' : ''}` //- блоки v > 1 нужны, чтобы проставлять указатели плотности. Они нужны только для плотности больше 1
+                srcset.push(path)
+              })
+
+              //- добавление сформированного пути в массив путей
+              srcsets.push({
+                density: d.name || undefined,
+                srcset: srcset.join(', '),
+                mime: item !== original ? item.mime : undefined,
+              })
+
+              //- формирование медиа-запросов в случае, если есть версии для нескольких разрешений
+              //- медиа-запросы формируются на основе объекта breakpoints
+              if (srcsets.length > 1) {
+                const i = srcsets.length
+
+                //- для текущего разрешения указываем только минимальную ширину
+                srcsets[i - 1].media = `(min-width: ${breakpoints[srcsets[i - 2].density] + 1}px)`
+
+                //- для предыдущего разрешения указываем также максимальное разрешение.
+                //- если предыдущее разрешение — самое маленькое, до для него указываем только максимальное разрешение
+                srcsets[i - 2].media = `${srcsets[i - 2].media ? srcsets[i - 2].media + ' or ' : ''}(max-width: ${breakpoints[srcsets[i - 2].density]}px)`
+              }
+            })
+        else
+          //- формирование srcset'ов, если плотности не указаны
+          -
+            srcsets.push({
+              srcset: `${image.path}${image.name}.${item.ext}`,
+              mime: item !== original ? item.mime : undefined,
+            })
+        each set in srcsets
+          source(srcset=set.srcset type=set.mime media=set.media)
+
+      //- img с оригинальным изображением
+      img(src=`${image.path}${image.name}.${original.ext}` loading='lazy' decoding='async')&attributes(attributes)

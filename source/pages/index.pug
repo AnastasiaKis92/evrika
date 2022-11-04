@@ -1,0 +1,249 @@
+extends /blocks/layout/layout
+
+include /blocks/form-input/form-input
+include /blocks/helpers/create-element
+include /blocks/costs/costs
+
+
+block head
+ -
+  const pageTitle = 'Тестовое задание'
+  const pageDescription = 'Выполненное тестовое задание'
+
+block content
+  -
+    const certificates = [
+      {
+        title: 'Сертификат соответствия',
+        image: 'certificate-1',
+      },
+      {
+        title: 'Сертификат соответствия',
+        image: 'certificate-2',
+      },
+      {
+        title: 'Сертификат соответствия',
+        image: 'certificate-3',
+      },
+      {
+        title: 'Сертификат соответствия',
+        image: 'certificate-4',
+      },
+    ]
+
+  +pageSection.order
+    h1 Доставка топлива
+    +pageSubsection({ order: true })
+      h2.order__subtitle Быстрый #[span заказ топлива]
+      form(action='https://echo.htmlacademy.ru/' method='post').order__form
+        +grid({ alignItems: 'flex-end' }).order__container
+          +cell({ l: 4, m: 4})
+            +formInput({ type: 'text', placeholder: 'Иван', label: 'Ваше имя', name: 'buyer-name', required: 'required' })
+          +cell({ l: 4, m: 4})
+            +formInput({ type: 'tel', placeholder: '+7 (___) ___-__-__', label: 'Номер телефона', name: 'tel', required: 'required' })
+          +cell({ l: 4, m: 4})
+            +button Заказать топливо
+          +cell({ l: 12})
+            label.form-input.form-input--checkbox
+              span.form-input__label Я согласен с условиями обработки данных
+              input(type='checkbox', name='agreement' checked required).hidden.form-input__field
+              span.form-input__mark
+
+  +pageSection({ costs:true }).costs
+    h2 Стоимость топлива
+    +pageSubsection
+      +costs
+
+  +pageSection({ bg: true }).delivery
+    +pageSubsection({ paddingY: true })
+      h2 Топливо с доставкой
+      form(action='https://echo.htmlacademy.ru/' method='post').delivery__form
+        +grid.delivery__container
+          +cell({ l:5, m:5 }).delivery__inputs
+            +formInput({ type: 'select', label: 'Вид топлива', name: 'fuel', class: 'form-input__field--select', options: ['ДТ', 'АИ-95'] })
+            +formInput({ type: 'text', placeholder: '1670 литров', label: 'Объем топлива', name: 'volume', required: 'required', value: '1670' })#range
+            .delivery__range
+            +formInput({ type: 'text', placeholder: 'Укажите место', label: 'Место доставки', name: 'address', required: 'required' })
+            +formInput({ type: 'text', placeholder: 'Иван', label: 'Ваше имя', name: 'buyer-name', required: 'required' })
+            +formInput({ type: 'tel', placeholder: '+7 (___) ___-__-__', label: 'Номер телефона', name: 'tel', required: 'required' })
+          +cell({ l:7, m:7 }).delivery__sum
+            p.delivery__title Итого
+            p.delivery__par Стоимость топлива #[span 77 350.00 ₽]
+            p.delivery__par Цена за&nbsp;литр: #[span 45.50 ₽]
+            span.delivery__text Цена и&nbsp;стоимость указаны ориентировочно. Точные цену и&nbsp;стоимость собщит наш менеджер при подтверждении заявки.
+            p.delivery__par Выгода: #[span.delivery__benefit 6 953.00 ₽]
+            span.delivery__text При цене на&nbsp;АЗС 49.59&nbsp;₽ за&nbsp;литр, цены актуальны на&nbsp;23.11.2020&nbsp;г.
+            +button.delivery__button Заказать топливо
+
+  +pageSection.work
+    h2 Как мы работаем
+    +pageSubsection
+      +grid
+        +cell({ l:4, m:4 }).work__container
+          .work__wrapper
+            .work__img.work__img--request
+            p.work__time 1-3 мин.
+              a.work__link(href='/')
+                span.hidden Перейти по ссылке
+          p.work__title Оформление заявки
+          p.work__text Заполните заявку на сайте, укажите удобное для вас место приезда заправщика, сорт и количество топлива, которое хотите купить
+
+        +cell({ l:4, m:4 }).work__container
+          .work__wrapper
+            .work__img.work__img--confirm
+            p.work__time 1-3 мин.
+              a.work__link(href='/')
+                span.hidden Перейти по ссылке
+          p.work__title Подтверждение заявки менеджером
+          p.work__text Дождитесь звонка нашего менеджера для уточнения условий заказа
+
+        +cell({ l:4, m:4 }).work__container
+          .work__wrapper
+            .work__img.work__img--refueling
+            p.work__time 30-90 мин.
+          p.work__title Заправка вашего автомобиля
+          p.work__text В назначенное время приедет заправщик и заправит автомобиль топливом
+          p.work__subtext Если у заказчика есть действующий договор на топливные карты, то при оплате можно провести транзакцию через терминал. Переносное устройство есть у каждого заправщика
+
+  +pageSection({ bg: true }).benefits
+    +pageSubsection({ paddingY: true })
+      h2 Преимущества сервиса
+      +pageSubsection
+        +grid
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--quality
+            p.benefits__title Качество топлива
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--time
+            p.benefits__title Бережем ваше время и нервы
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--price
+            p.benefits__title Цена
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--comfort
+            p.benefits__title Ваш комфорт—наша забота
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--security
+            p.benefits__title Безопасность процесса
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+          +cell({ l:4, m:6 }).benefits__container.benefits__container--way
+            p.benefits__title Несколько ТС в одном месте?
+            p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
+
+  +pageSection({ certificates: true }).certificates
+    .certificates__slider.swiper
+      h2.certificates__title Сертификаты качества топлива
+      .certificates__slider-wrapper.swiper-wrapper
+        .certificates__slide.swiper-slide
+          .certificates__container
+            +img({
+              name: certificates[0].image,
+              path: '/images/',
+              formats: [
+                { ext: 'jpg', orig: true },
+                { ext: 'webp', mime: 'image/webp' },
+              ],
+              density: [
+                { values: [ 1, 2 ] }
+              ]
+            })(alt= certificates[0].title title= certificates[0].title width=217 height=301 class='certificates__image')
+        .certificates__slide.swiper-slide
+          .certificates__container
+            +img({
+              name: certificates[1].image,
+              path: '/images/',
+              formats: [
+                { ext: 'jpg', orig: true },
+                { ext: 'webp', mime: 'image/webp' },
+              ],
+              density: [
+                { values: [ 1, 2 ] }
+              ]
+            })(alt= certificates[1].title title= certificates[1].title width=217 height=301 class='certificates__image')
+
+        .certificates__slide.swiper-slide
+          .certificates__container
+            +img({
+              name: certificates[2].image,
+              path: '/images/',
+              formats: [
+                { ext: 'jpg', orig: true },
+                { ext: 'webp', mime: 'image/webp' },
+              ],
+              density: [
+                { values: [ 1, 2 ] }
+              ]
+            })(alt= certificates[2].title title= certificates[2].title width=217 height=301 class='certificates__image')
+
+        .certificates__slide.swiper-slide
+          .certificates__container
+            +img({
+              name: certificates[3].image,
+              path: '/images/',
+              formats: [
+                { ext: 'jpg', orig: true },
+                { ext: 'webp', mime: 'image/webp' },
+              ],
+              density: [
+                { values: [ 1, 2 ] }
+              ]
+            })(alt= certificates[3].title title= certificates[3].title width=217 height=301 class='certificates__image')
+
+      button.certificates__swiper-button.swiper-button-prev
+        span.hidden Предыдущий слайд
+      button.certificates__swiper-button.swiper-button-next
+        span.hidden Следующий слайд
+
+  +pageSection.partners
+    h2 Наши партнеры
+    +pageSubsection({ partnersSubsection:true })
+      .partners__slider.swiper
+        .partners__slider-wrapper.swiper-wrapper
+          .partners__slide.swiper-slide
+            a(href='/').partners__link.partners__link--lukoil
+              span.hidden Сайт Лукойл
+          .partners__slide.swiper-slide
+            a(href='/').partners__link.partners__link--gazprom
+              span.hidden Сайт Газпромнефть
+          .partners__slide.swiper-slide
+            a(href='/').partners__link.partners__link--rosneft
+              span.hidden Сайт Роснефть
+          .partners__slide.swiper-slide
+            a(href='/').partners__link.partners__link--tatneft
+              span.hidden Сайт Татнефть
+        .partners__pagination.swiper-pagination
+
+  +pageSection({ bg: true}).reviews
+    +pageSubsection({ paddingY: true })
+      .reviews__slider.swiper
+        h2.reviews__title Отзывы
+        .reviews__slider-wrapper.swiper-wrapper
+          .reviews__slide.swiper-slide
+            p.reviews__name Гусев Вячеслав
+            p.reviews__job Индивидуальный предприниматель
+            p Velit, lectus sit urna tincidunt augue. Cursus vulputate pellentesque faucibus euismod. Diam pharetra, non, ut integer dui feugiat porttitor at. Non, dignissim enim viverra fringilla sit. Etiam justo a dignissim sociis vitae, nisi, justo, feugiat.
+            a(href='/').reviews__link Подробнее
+          .reviews__slide.swiper-slide
+            p.reviews__name Зеленов Евгений
+            p.reviews__job Гененеральный директор транспортной компании
+            p Mi auctor sit habitasse sed mi cras ullamcorper massa sed. In augue fames sodales pretium, at scelerisque. Pulvinar a mattis pharetra mi, aliquet sem tristique lorem eleifend. Nisl, scelerisque ut libero, pellentesque. Tincidunt vestibulum volutpat lacus imperdiet morbi vulputate tristique facilisi.
+            a(href='/').reviews__link Подробнее
+        button.reviews__swiper-button.swiper-button-prev
+          span.hidden Предыдущий слайд
+        button.reviews__swiper-button.swiper-button-next
+          span.hidden Следующий слайд
+      +button.reviews__button Читать все отзывы
+
+  +pageSection({ bg:true, bgBlue: true, questions:true }).questions
+    +pageSubsection({ paddingY: true })
+      h2 Остались вопросы?
+      p.questions__text Готовы ответить на любой Ваш вопрос. Оставьте свой номер телефона и мы свяжемся с Вами в ближайшее время
+      form(action='https://echo.htmlacademy.ru/' method='post').questions__form
+        +grid({ alignItems: 'flex-end'}).questions__container
+          +cell({ l: 4, m: 4})
+            +formInput({ type: 'text', placeholder: 'Ваше имя', name: 'buyer-name', required: 'required' })
+          +cell({ l: 4, m: 4})
+            +formInput({ type: 'tel', placeholder: 'Номер телефона', name: 'tel', required: 'required' })
+          +cell({ l: 3, m: 4})
+            +button.questions__button Перезвоните мне
+      p.questions__callback Нажимая на кнопку «Перезвоните мне», я соглашаюсь с #[a(href='/').questions__link политикой конфиденциальности]
+

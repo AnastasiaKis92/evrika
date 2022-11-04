@@ -1,0 +1,40 @@
+.benefits
+  &__container
+    position relative
+    padding 1.25rem
+    background-color var(--color-white)
+    &::before
+      content ''
+      position absolute
+      left 0
+      width 70px
+      height 46px
+      background-repeat no-repeat
+      background-size cover
+    &--quality
+      &::before
+        background-image var(--icon-quality)
+    &--time
+      &::before
+        background-image var(--icon-time)
+    &--price
+      &::before
+        background-image var(--icon-price)
+    &--comfort
+      &::before
+        background-image var(--icon-comfort)
+    &--security
+      &::before
+        background-image var(--icon-security)
+    &--way
+      &::before
+        background-image var(--icon-way)
+  &__title
+    padding-left 4.1rem
+    padding-bottom 0.75rem
+    font-weight 600
+    fontSize15()
+  &__text
+    padding-left 4.1rem
+    fontSize14()
+    color var(--color-grey)
