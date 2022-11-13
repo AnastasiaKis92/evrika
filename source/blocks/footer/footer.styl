@@ -1,4 +1,7 @@
 .footer-menu
+  // display flex
+  // flex-direction column
+  // align-items flex-end
   &__logo
     padding-bottom 0.5rem
     transform translateY(-0.625rem)
@@ -16,15 +19,14 @@
     @media(max-width point-s)
       text-align center
   &__link-tel
-    display block
+    float right
     font-weight 700
     color var(--color-blue-light)
     fontSize18()
-    text-align right
     @media(max-width point-s)
-      text-align center
+      // margin 0 auto
 
 .footer-bottom
   &__link
-    display block
+    display inline-block
     margin-top 4rem

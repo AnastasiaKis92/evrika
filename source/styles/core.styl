@@ -1,0 +1,42 @@
+@import 'includes/variables.core'
+@import 'includes/mixins'
+@import 'includes/fonts'
+@import 'includes/normalize'
+@import 'includes/hidden'
+
+@import "../../node_modules/nouislider/dist/nouislider.min.css"
+@import "../../node_modules/swiper/swiper-bundle.min.css"
+
+
+fontFace('Montserrat', 'Montserrat-Regular', '400', 'normal')
+fontFace('Montserrat', 'Montserrat-Medium', '500', 'normal')
+fontFace('Montserrat', 'Montserrat-SemiBold', '600', 'normal')
+fontFace('Montserrat', 'Montserrat-Bold', '700', 'normal')
+
+html
+  font-family 'Montserrat', 'Helvetica-Neue', 'Arial', sans-serif
+  font-size 16px
+  line-height 1.375
+  font-weight 400
+
+.page-hidden
+  @media (max-width point-m)
+    overflow: hidden
+
+@import '../blocks/container'
+@import '../blocks/content'
+@import '../blocks/page-section'
+@import '../blocks/layout'
+@import '../blocks/grid'
+@import '../blocks/page-subsection'
+@import '../blocks/img'
+@import '../blocks/h1/h1'
+@import '../blocks/h2/h2'
+@import '../blocks/a/a.core'
+@import '../blocks/button/button.core'
+@import '../blocks/form-input/form-input.core'
+@import '../blocks/header/header.core'
+@import '../blocks/burger/burger.core'
+@import '../blocks/nav/nav.core'
+@import '../blocks/order/order.core'
+@import '../blocks/costs/costs'

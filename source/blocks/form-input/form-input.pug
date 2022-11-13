@@ -6,7 +6,7 @@ mixin formInput(item)
     ]
   label.form-input(class != inputClass)
     if item.label
-      +createElement({tag: 'span', attr: {for: attributes.id, class: 'form-input__label'}, content: item.label})
+      +createElement({tag: 'span', attr: {class: 'form-input__label'}, content: item.label})
     -
       const inputTag = item.type === 'select' || item.type === 'textarea' ? item.type : 'input'
       const inputType = item.type !== 'select' && item.type !== 'textarea' ? item.type : false

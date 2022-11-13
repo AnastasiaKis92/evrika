@@ -9,7 +9,7 @@ import pug from 'gulp-pug';
 import svgmin from 'gulp-svgmin';
 import svgSprite from 'gulp-svg-sprite';
 import terser from 'gulp-terser';
-import squoosh from 'gulp-libsquoosh';
+import cwebp from 'gulp-cwebp';
 import del from 'del';
 import htmlmin from 'gulp-htmlmin';
 import gcmq from 'gulp-group-css-media-queries';
@@ -46,7 +46,7 @@ export const fonts = () => gulp.src(['source/fonts/*.ttf'])
   .pipe(gulp.dest('build/fonts'));
 
 // Styles
-export const styles = () => gulp.src('source/styles/styles.styl', { sourcemaps: true })
+export const styles = () => gulp.src('source/styles/*.styl')
   .pipe(plumber({
     errorHandler: function (err) {
       console.log(err);
@@ -61,8 +61,7 @@ export const styles = () => gulp.src('source/styles/styles.styl', { sourcemaps: 
     autoprefixer(),
     csso()
   ]))
-  .pipe(rename('styles.min.css'))
-  .pipe(gulp.dest('build/css', { sourcemaps: '.' }))
+  .pipe(gulp.dest('build/css'))
   .pipe(browserSync.stream());
 
 // Pug
@@ -79,7 +78,7 @@ export const template = () => gulp.src('source/pages/*.pug')
 
 // Images
 const optimizeImages = () => gulp.src('source/img/**/*.{jpg,png}')
-  .pipe(squoosh())
+  .pipe(cwebp())
   .pipe(gulp.dest('build/images'));
 
 const copyImages = () => gulp.src('source/img/**/*.{jpg,png}')
@@ -87,9 +86,7 @@ const copyImages = () => gulp.src('source/img/**/*.{jpg,png}')
 
 // WebP
 const createWebp = () => gulp.src(['source/img/**/*.{jpg,png}', '!source/img/favicons/*{png,svg}'])
-  .pipe(squoosh({
-    webp: {}
-  }))
+  .pipe(cwebp())
   .pipe(gulp.dest('build/images'));
 
 // SVG

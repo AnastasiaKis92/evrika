@@ -1,0 +1,52 @@
+.form-input
+  display block
+  position relative
+  &__field
+    width 100%
+    padding 1rem
+    fontSize14()
+    border 1px solid var(--input-border)
+  &__label
+    display block
+    padding-bottom 0.5rem
+    fontSize12()
+    font-weight 500
+  // Стилизация checkbox
+  &--checkbox
+    display inline-flex
+    align-items center
+    & > .form-input__label
+      padding-bottom 0
+      padding-left 2.5rem
+      fontSize14()
+      order 2
+  &__mark
+    display inline-block
+    position absolute
+    width 1.5rem
+    height 1.5rem
+    border 1px solid var(--input-border)
+
+// Стилизация checkbox
+.form-input__field[type=checkbox]:checked + .form-input__mark
+  &::before
+    content ''
+    align-center()
+
+// Стилизация range
+.delivery__range
+  margin-top -17px
+  height 1px
+  border none
+
+// Ползунок
+.noUi-horizontal .noUi-handle
+  width 1rem
+  height 1rem
+  border none
+  &::before
+  &::after
+    display none
+
+.noUi-handle.noUi-handle-upper
+  display none

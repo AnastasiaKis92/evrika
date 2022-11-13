@@ -1,10 +1,21 @@
+.button
+  font-family 'Montserrat', 'Helvetica-Neue', 'Arial', sans-serif
+  color var(--color-white)
+  text-decoration none
+  text-align center
+  background-color var(--color-blue-light)
+  border none
+  appearance none
+  transition background-color var(--transition-duration-out), color var(--transition-duration-out)
+  &:hover
+    transition-duration var(--transition-duration-in)
+    @media (min-width point-l)
+      background-color var(--color-blue-dark)
+
 // Swiper Navigation
 .swiper-button-prev
 .swiper-button-next
-  width 56px
-  height 56px
   background-color var(--color-white)
-  border 1px solid var(--input-border)
   top 28px
   @media (max-width point-m)
     top 70px
@@ -23,7 +34,6 @@
     mask-image var(--icon-arrow-btn)
     mask-repeat no-repeat
     background-color var(--color-black)
-
   transition background-color var(--transition-duration-out)
   &:hover
     transition-duration var(--transition-duration-in)

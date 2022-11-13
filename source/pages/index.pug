@@ -1,9 +1,6 @@
 extends /blocks/layout/layout
 
-include /blocks/form-input/form-input
-include /blocks/helpers/create-element
 include /blocks/costs/costs
-
 
 block head
  -
@@ -78,26 +75,24 @@ block content
   +pageSection.work
     h2 Как мы работаем
     +pageSubsection
-      +grid
-        +cell({ l:4, m:4 }).work__container
+      ol(class= gridClasses())
+        li(class= cellClasses({ l:4, m:4 })).work__container
           .work__wrapper
             .work__img.work__img--request
             p.work__time 1-3 мин.
-              a.work__link(href='/')
-                span.hidden Перейти по ссылке
+              span.work__arrow
           p.work__title Оформление заявки
           p.work__text Заполните заявку на сайте, укажите удобное для вас место приезда заправщика, сорт и количество топлива, которое хотите купить
 
-        +cell({ l:4, m:4 }).work__container
+        li(class= cellClasses({ l:4, m:4 })).work__container
           .work__wrapper
             .work__img.work__img--confirm
             p.work__time 1-3 мин.
-              a.work__link(href='/')
-                span.hidden Перейти по ссылке
+              span.work__arrow
           p.work__title Подтверждение заявки менеджером
           p.work__text Дождитесь звонка нашего менеджера для уточнения условий заказа
 
-        +cell({ l:4, m:4 }).work__container
+        li(class= cellClasses({ l:4, m:4 })).work__container
           .work__wrapper
             .work__img.work__img--refueling
             p.work__time 30-90 мин.
@@ -109,23 +104,23 @@ block content
     +pageSubsection({ paddingY: true })
       h2 Преимущества сервиса
       +pageSubsection
-        +grid
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--quality
+        ul(class= gridClasses())
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--quality
             p.benefits__title Качество топлива
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--time
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--time
             p.benefits__title Бережем ваше время и нервы
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--price
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--price
             p.benefits__title Цена
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--comfort
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--comfort
             p.benefits__title Ваш комфорт—наша забота
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--security
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--security
             p.benefits__title Безопасность процесса
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
-          +cell({ l:4, m:6 }).benefits__container.benefits__container--way
+          li(class= cellClasses({ l:4, m:6 })).benefits__container.benefits__container--way
             p.benefits__title Несколько ТС в одном месте?
             p.benefits__text Aliquam rhoncus et massa adipiscing risus leo nec lacus, sagittis. Eu, purus ac nisi sit eget sed et, adipiscing felis.
 
@@ -246,4 +241,3 @@ block content
           +cell({ l: 3, m: 4})
             +button.questions__button Перезвоните мне
       p.questions__callback Нажимая на кнопку «Перезвоните мне», я соглашаюсь с #[a(href='/').questions__link политикой конфиденциальности]
-
