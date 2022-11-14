@@ -41,9 +41,12 @@ export const script = () => gulp.src('source/scripts/main.js')
   .pipe(gulp.dest('./build/scripts'));
 
 // Fonts
-export const fonts = () => gulp.src(['source/fonts/*.ttf'])
-  .pipe(ttf2woff2())
-  .pipe(gulp.dest('build/fonts'));
+export const fonts = (done) => {
+  gulp.src(['source/fonts/*.ttf'])
+    .pipe(ttf2woff2())
+    .pipe(gulp.dest('build/fonts'));
+  done();
+};
 
 // Styles
 export const styles = () => gulp.src('source/styles/*.styl')
