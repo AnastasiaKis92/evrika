@@ -54,23 +54,28 @@ block content
   +pageSection({ bg: true }).delivery
     +pageSubsection({ paddingY: true })
       h2 Топливо с доставкой
-      form(action='https://echo.htmlacademy.ru/' method='post').delivery__form
-        +grid.delivery__container
-          +cell({ l:5, m:5 }).delivery__inputs
-            +formInput({ type: 'select', label: 'Вид топлива', name: 'fuel', class: 'form-input__field--select', options: ['ДТ', 'АИ-95'] })
+      form(class= gridClasses(), action='https://echo.htmlacademy.ru/' method='post').delivery__form
+        ul(class= cellClasses({ l:5, m:5 })).delivery__list
+          li
+            +formInput({ type: 'select', label: 'Вид топлива', name: 'fuel', options: ['ДТ', 'АИ-95'] })
+          li
             +formInput({ type: 'text', placeholder: '1670 литров', label: 'Объем топлива', name: 'volume', required: 'required', value: '1670' })#range
-            .delivery__range
-            +formInput({ type: 'text', placeholder: 'Укажите место', label: 'Место доставки', name: 'address', required: 'required' })
+              .delivery__range
+          li
+            +formInput({ type: 'text', placeholder: 'Укажите место', label: 'Место доставки', name: 'address'})#address
+          li
             +formInput({ type: 'text', placeholder: 'Иван', label: 'Ваше имя', name: 'buyer-name', required: 'required' })
+          li
             +formInput({ type: 'tel', placeholder: '+7 (___) ___-__-__', label: 'Номер телефона', name: 'tel', required: 'required' })
-          +cell({ l:7, m:7 }).delivery__sum
-            p.delivery__title Итого
-            p.delivery__par Стоимость топлива #[span 77 350.00 ₽]
-            p.delivery__par Цена за&nbsp;литр: #[span 45.50 ₽]
-            span.delivery__text Цена и&nbsp;стоимость указаны ориентировочно. Точные цену и&nbsp;стоимость собщит наш менеджер при подтверждении заявки.
-            p.delivery__par Выгода: #[span.delivery__benefit 6 953.00 ₽]
-            span.delivery__text При цене на&nbsp;АЗС 49.59&nbsp;₽ за&nbsp;литр, цены актуальны на&nbsp;23.11.2020&nbsp;г.
-            +button.delivery__button Заказать топливо
+
+        +cell({ l:7, m:7 }).delivery__sum
+          p.delivery__title Итого
+          p.delivery__par Стоимость топлива #[span 77 350.00 ₽]
+          p.delivery__par Цена за&nbsp;литр: #[span 45.50 ₽]
+          span.delivery__text Цена и&nbsp;стоимость указаны ориентировочно. Точные цену и&nbsp;стоимость собщит наш менеджер при подтверждении заявки.
+          p.delivery__par Выгода: #[span.delivery__benefit 6 953.00 ₽]
+          span.delivery__text При цене на&nbsp;АЗС 49.59&nbsp;₽ за&nbsp;литр, цены актуальны на&nbsp;23.11.2020&nbsp;г.
+          +button.delivery__button Заказать топливо
 
   +pageSection.work
     h2 Как мы работаем

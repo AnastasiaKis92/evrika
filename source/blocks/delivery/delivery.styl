@@ -4,7 +4,7 @@
       column-gap 4.4rem
   &__form
     padding-top 2.1rem
-  &__inputs
+  &__list
     display flex
     flex-direction column
     row-gap 1rem
@@ -44,4 +44,29 @@
     margin-top 1rem
     @media(min-width point-s)
       width 50%
-
+  // Стилизация range
+  &__range
+    height 1px
+    margin-top -1px
+    background-color var(--color-blue-light)
+    box-shadow none
+    border-radius 0
+    border none
+    // Ползунок
+    & .noUi-handle
+      width 1rem
+      height 1rem
+      background-color var(--color-blue-light)
+      box-shadow none
+      border-radius 50%
+      border none
+      &::before
+      &::after
+        display none
+    & .noUi-handle.noUi-handle-upper
+      display none
+    & .noUi-handle.noUi-handle-lower
+      right -9px
+    // Трэк м/у ползунками
+    & .noUi-connect
+      background-color: rgba(white, 80%)

@@ -1,7 +1,13 @@
 .form-input
   &__field
     font-family 'Montserrat', 'Helvetica-Neue', 'Arial', sans-serif
-
+    // Стилизация select
+    &--select
+      appearance none
+      background-image var(--icon-arrow)
+      background-repeat no-repeat
+      background-size 12px 12px
+      background-position center right 0.875rem
   // Стилизация checkbox
   &__mark
     background-color var(--color-bg)
@@ -15,30 +21,3 @@
     mask-repeat no-repeat
     mask-size contain
     background-color var(--color-black)
-
-// Стилизация select
-.form-input__field--select
-  appearance none
-  background-image var(--icon-arrow)
-  background-repeat no-repeat
-  background-size 12px 12px
-  background-position center right 0.875rem
-
-// Стилизация range
-.delivery__range
-  background-color var(--color-blue-light)
-  box-shadow none
-  border-radius 0
-
-// Ползунок
-.noUi-horizontal .noUi-handle
-  background-color var(--color-blue-light)
-  border-radius 50%
-  box-shadow none
-
-.noUi-handle.noUi-handle-lower
-  right -9px
-
-// Трэк м/у ползунками
-.noUi-connect
-  background-color: rgba(white, 80%)
